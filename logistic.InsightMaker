@@ -1,0 +1,126 @@
+<InsightMakerModel>
+  <root>
+    <mxCell id="0" />
+    <mxCell id="1" parent="0" />
+    <Setting Note="" Version="37" TimeLength="60" TimeStart="0" TimeStep="0.1" TimeUnits="Years" Units="" SolutionAlgorithm="RK4" BackgroundColor="white" Throttle="1" Macros="" SensitivityPrimitives="" SensitivityRuns="50" SensitivityBounds="50, 80, 95, 100" SensitivityShowRuns="false" StyleSheet="{}" id="2">
+      <mxCell parent="1" vertex="1" visible="0">
+        <mxGeometry x="20" y="20" width="80" height="40" as="geometry" />
+      </mxCell>
+    </Setting>
+    <Display name="Default Display" Note="" Type="Time Series" xAxis="Time (%u)" yAxis="%o" Primitives="92,96" AutoAddPrimitives="true" ScatterplotOrder="X Primitive, Y Primitive" Image="Display" yAxis2="" Primitives2="" showMarkers="false" showLines="true" showArea="false" legendPosition="Automatic" id="3">
+      <mxCell style="roundImage;image=/builder/images/DisplayFull.png;" parent="1" vertex="1" visible="0">
+        <mxGeometry x="50" y="20" width="64" height="64" as="geometry" />
+      </mxCell>
+    </Display>
+    <Stock name="Resources" Note="" InitialValue="2" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="true" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="92" id="92">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="760" y="300" width="100" height="40" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Flow name="Production" Note="" FlowRate="[Capacity]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="93" id="93">
+      <mxCell style="flow" parent="1" target="92" edge="1">
+        <mxGeometry x="-60.5" y="90" width="100" height="100" as="geometry">
+          <mxPoint x="810" y="430" as="sourcePoint" />
+          <mxPoint x="-60.5" y="190" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Variable name="Capacity" Note="" Equation="3" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="true" SliderMax="10" SliderMin="0" SliderStep="0.1" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="94" id="94">
+      <mxCell style="variable" parent="1" vertex="1">
+        <mxGeometry x="600" y="410" width="120" height="50" as="geometry" />
+      </mxCell>
+    </Variable>
+    <Link name="Link" Note="" BiDirectional="false" oldId="95" id="95">
+      <mxCell style="link" parent="1" source="94" target="93" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Stock name="Population" Note="" InitialValue="4" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="96" id="96">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="440" y="220" width="100" height="40" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Flow name="Use" Note="" FlowRate="[Needs]*[Population]" OnlyPositive="true" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="98" id="98">
+      <mxCell style="flow;startFill=0;" parent="1" source="92" target="101" edge="1">
+        <mxGeometry x="120" y="-80" width="100" height="100" as="geometry">
+          <mxPoint x="660" y="180" as="sourcePoint" />
+          <mxPoint x="580" y="130" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Variable name="Needs" Note="" Equation="0.03" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="true" SliderMax="0.1" SliderMin="0" SliderStep="0.001" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="99" id="99">
+      <mxCell style="variable" parent="1" vertex="1">
+        <mxGeometry x="610" y="240" width="120" height="50" as="geometry" />
+      </mxCell>
+    </Variable>
+    <Link name="Link" Note="" BiDirectional="false" oldId="100" id="100">
+      <mxCell style="link" parent="1" source="99" target="98" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Stock name="Used Resources" Note="" InitialValue="0" StockMode="Store" Delay="10" Volume="100" NonNegative="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="101" id="101">
+      <mxCell style="stock" parent="1" vertex="1">
+        <mxGeometry x="760" y="120" width="100" height="40" as="geometry" />
+      </mxCell>
+    </Stock>
+    <Link name="Link" Note="" BiDirectional="false" oldId="102" id="102">
+      <mxCell style="link" parent="1" source="96" target="98" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Flow name="Growth" Note="" FlowRate="[r]*[Population]*([Capacity]-[Needs]*[Population])/[Capacity]" OnlyPositive="false" TimeIndependent="false" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="false" SliderMax="100" SliderMin="0" SliderStep="" oldId="104" id="104">
+      <mxCell style="flow;startArrow=block;startFill=0;" parent="1" target="96" edge="1">
+        <mxGeometry x="-15" y="80" width="100" height="100" as="geometry">
+          <mxPoint x="495" y="430" as="sourcePoint" />
+          <mxPoint x="-15" y="180" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Flow>
+    <Link name="Link" Note="" BiDirectional="false" oldId="105" id="105">
+      <mxCell style="link" parent="1" source="92" target="104" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Link name="Link" Note="" BiDirectional="false" oldId="106" id="106">
+      <mxCell style="link" parent="1" source="94" target="104" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Link name="Link" Note="" BiDirectional="false" oldId="107" id="107">
+      <mxCell style="link" parent="1" source="99" target="104" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="510" y="300" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+    <Variable name="r" Note="" Equation="0.2" Units="Unitless" MaxConstraintUsed="false" MinConstraintUsed="false" MaxConstraint="100" MinConstraint="0" ShowSlider="true" SliderMax="1" SliderMin="0" SliderStep="0.01" Image="None" FlipHorizontal="false" FlipVertical="false" LabelPosition="Middle" oldId="109" id="109">
+      <mxCell style="variable" parent="1" vertex="1">
+        <mxGeometry x="320" y="320" width="120" height="50" as="geometry" />
+      </mxCell>
+    </Variable>
+    <Link name="Link" Note="" BiDirectional="false" oldId="110" id="110">
+      <mxCell style="link" parent="1" source="109" target="104" edge="1">
+        <mxGeometry width="100" height="100" as="geometry">
+          <mxPoint y="100" as="sourcePoint" />
+          <mxPoint x="100" as="targetPoint" />
+        </mxGeometry>
+      </mxCell>
+    </Link>
+  </root>
+</InsightMakerModel>
